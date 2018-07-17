@@ -1,0 +1,6 @@
+[package]
+name = "hashmap_union"
+version = "0.1.0"
+authors = ["Robert Greener <robert.greener@kcl.ac.uk>"]
+
+[dependencies]
