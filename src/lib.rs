@@ -25,6 +25,11 @@ where
         )
 }
 
+/// Gets the intersection of two HashMaps, using f to join them
+/// * one: The first hashmap
+/// * two: The second hashmap
+/// * f: What to do when the key exists in both hashmaps
+/// * Returns: The intersection of one and two
 pub fn intersection_of<K, A, B, C, F>(one: &HashMap<K, A>, two: &HashMap<K, B>, f: F) -> HashMap<K, C>
 where
     K: Hash + Eq + Clone,
