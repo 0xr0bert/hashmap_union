@@ -1,5 +1,5 @@
 # Hashmap_union
-This library allows the union of two hashmaps, where they key and value both implement Clone.
+This library allows the union & intersection of two hashmaps, where they key and value both implement Clone.
 
 ## Attributions
 This code is based on code from [im-rs](https://github.com/bodil/im-rs) Copyright 2017 Bodil Stokke

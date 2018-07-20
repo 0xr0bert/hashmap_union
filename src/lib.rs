@@ -7,9 +7,11 @@ use std::collections::HashMap;
 /// * two: The second hashmap
 /// * f: What to do when the key exists in both hashmaps
 /// * Returns: The union of one and two
-pub fn union_of<K, V>(one: &HashMap<K, V>, two: &HashMap<K, V>, f: fn(V, V) -> V) -> HashMap<K, V>
-where K: Hash + Eq + Clone,
-      V: Clone
+pub fn union_of<K, V, F>(one: &HashMap<K, V>, two: &HashMap<K, V>, f: F) -> HashMap<K, V>
+where
+    K: Hash + Eq + Clone,
+    V: Clone,
+    F: Fn(V, V) -> V
 {
     two
         .iter()
@@ -21,4 +23,24 @@ where K: Hash + Eq + Clone,
                 m
             }
         )
+}
+
+pub fn intersection_of<K, A, B, C, F>(one: &HashMap<K, A>, two: &HashMap<K, B>, f: F) -> HashMap<K, C>
+where
+    K: Hash + Eq + Clone,
+    A: Clone,
+    B: Clone,
+    F: Fn(A, B) -> C
+{
+    let mut out = HashMap::new();
+    for (k, v2) in two {
+        match one.get(k) {
+            None => (),
+            Some(v1) => {
+                let result = f(v1.clone(), v2.clone());
+                out.insert(k.clone(), result);
+            }
+        }
+    }
+    out
 }
