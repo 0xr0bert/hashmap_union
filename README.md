@@ -1,4 +1,8 @@
 # Hashmap_union
+[![builds.sr.ht status](https://builds.sr.ht/~ragreener1/hashmap_union/commits/master.svg)](https://builds.sr.ht/~ragreener1/hashmap_union/commits/master?)
+![Crates.io License](https://img.shields.io/crates/l/hashmap_union)
+
+
 This library allows the union & intersection of two hashmaps, where they key and value both implement Clone.
 
 ## Attributions
